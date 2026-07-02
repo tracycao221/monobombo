@@ -1,0 +1,54 @@
+{
+  "skill": "adsterra-code-handoff",
+  "generatedAt": "2026-07-02T03:08:59Z",
+  "status": "applied_cloudflare_sync",
+  "domain": "monobombo.com",
+  "cloudflarePagesProject": "monobombo",
+  "siteRoot": "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/sites/monobombo-calculator",
+  "projectDir": "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/projects/monobombo",
+  "parsedPlacements": [
+    {
+      "format": "social_bar",
+      "scriptUrl": "https://pl30164215.effectivecpmnetwork.com/e1/93/bb/e193bba47d525348f38b366b464ad82d.js"
+    }
+  ],
+  "unresolved": [],
+  "warnings": [
+    "Missing core display env vars: NEXT_PUBLIC_ADSTERRA_BANNER_728X90_KEY, NEXT_PUBLIC_ADSTERRA_BANNER_320X50_KEY, NEXT_PUBLIC_ADSTERRA_BANNER_300X250_KEY, NEXT_PUBLIC_ADSTERRA_NATIVE_1_ID, NEXT_PUBLIC_ADSTERRA_NATIVE_1_SCRIPT_URL. The site still runs, but those ad slots remain hidden."
+  ],
+  "productionEnvVarNames": [
+    "NEXT_PUBLIC_ADSTERRA_ENABLE_POPUNDER",
+    "NEXT_PUBLIC_ADSTERRA_ENABLE_SOCIAL_BAR",
+    "NEXT_PUBLIC_ADSTERRA_ENABLE_STICKY_RAIL",
+    "NEXT_PUBLIC_ADSTERRA_POPUNDER_DELAY_MS",
+    "NEXT_PUBLIC_ADSTERRA_POPUNDER_MIN_PAGEVIEWS",
+    "NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_SCRIPT_URL"
+  ],
+  "envPayload": "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/sites/monobombo-calculator/adsterra_cloudflare_env.production.json",
+  "envExample": "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/sites/monobombo-calculator/adsterra_env.production.example",
+  "cloudflareSync": {
+    "command": [
+      "/opt/homebrew/opt/python@3.12/bin/python3.12",
+      "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/scripts/sync_adsterra_cloudflare_env.py",
+      "--env-file",
+      "site-autopilot/sites/monobombo-calculator/adsterra_cloudflare_env.production.json",
+      "--report-out",
+      "site-autopilot/sites/monobombo-calculator/adsterra_cloudflare_sync_report.json",
+      "--site-root",
+      "site-autopilot/sites/monobombo-calculator",
+      "--domain",
+      "monobombo.com",
+      "--project-name",
+      "monobombo",
+      "--apply"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "report": "adsterra_cloudflare_sync_report.json"
+  },
+  "redeploy": {
+    "status": "pending_git_push_trigger",
+    "method": "normal commit push after env sync"
+  },
+  "cloudflareApplied": true
+}

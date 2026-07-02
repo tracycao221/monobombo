@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-02T03:08:56Z",
+  "domain": "monobombo.com",
+  "project": "monobombo",
+  "status": "ready_to_apply",
+  "productionEnv": {
+    "NEXT_PUBLIC_ADSTERRA_ENABLE_POPUNDER": "false",
+    "NEXT_PUBLIC_ADSTERRA_POPUNDER_DELAY_MS": "30000",
+    "NEXT_PUBLIC_ADSTERRA_POPUNDER_MIN_PAGEVIEWS": "2",
+    "NEXT_PUBLIC_ADSTERRA_ENABLE_SOCIAL_BAR": "true",
+    "NEXT_PUBLIC_ADSTERRA_ENABLE_STICKY_RAIL": "false",
+    "NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_SCRIPT_URL": "https://pl30164215.effectivecpmnetwork.com/e1/93/bb/e193bba47d525348f38b366b464ad82d.js"
+  },
+  "note": "Public Adsterra runtime values only. Private API keys and Cloudflare tokens are never written here."
+}

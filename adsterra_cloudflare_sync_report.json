@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-07-02T03:09:33Z",
+  "mode": "apply",
+  "siteCount": 1,
+  "results": [
+    {
+      "site": "monobombo",
+      "domain": "monobombo.com",
+      "cloudflarePagesProject": "monobombo",
+      "matchedDomains": [
+        "monobombo.pages.dev",
+        "monobombo.com",
+        "www.monobombo.com"
+      ],
+      "status": "applied",
+      "productionEnvVarNames": [
+        "NEXT_PUBLIC_ADSTERRA_ENABLE_POPUNDER",
+        "NEXT_PUBLIC_ADSTERRA_ENABLE_SOCIAL_BAR",
+        "NEXT_PUBLIC_ADSTERRA_ENABLE_STICKY_RAIL",
+        "NEXT_PUBLIC_ADSTERRA_POPUNDER_DELAY_MS",
+        "NEXT_PUBLIC_ADSTERRA_POPUNDER_MIN_PAGEVIEWS",
+        "NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_SCRIPT_URL"
+      ],
+      "previewEnvVarNames": [],
+      "sources": [
+        "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/sites/monobombo-calculator/adsterra_cloudflare_env.production.json"
+      ]
+    }
+  ],
+  "note": "Report intentionally includes env var names only, not values."
+}
