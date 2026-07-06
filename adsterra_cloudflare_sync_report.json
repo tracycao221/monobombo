@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T03:09:33Z",
+  "generatedAt": "2026-07-06T14:48:16Z",
   "mode": "apply",
   "siteCount": 1,
   "results": [
@@ -14,17 +14,27 @@
       ],
       "status": "applied",
       "productionEnvVarNames": [
+        "NEXT_PUBLIC_ADSTERRA_BANNER_160X300_KEY",
+        "NEXT_PUBLIC_ADSTERRA_BANNER_160X600_KEY",
+        "NEXT_PUBLIC_ADSTERRA_BANNER_300X250_KEY",
+        "NEXT_PUBLIC_ADSTERRA_BANNER_320X50_KEY",
+        "NEXT_PUBLIC_ADSTERRA_BANNER_468X60_KEY",
+        "NEXT_PUBLIC_ADSTERRA_BANNER_728X90_KEY",
         "NEXT_PUBLIC_ADSTERRA_ENABLE_POPUNDER",
         "NEXT_PUBLIC_ADSTERRA_ENABLE_SOCIAL_BAR",
         "NEXT_PUBLIC_ADSTERRA_ENABLE_STICKY_RAIL",
+        "NEXT_PUBLIC_ADSTERRA_NATIVE_1_ID",
+        "NEXT_PUBLIC_ADSTERRA_NATIVE_1_SCRIPT_URL",
         "NEXT_PUBLIC_ADSTERRA_POPUNDER_DELAY_MS",
         "NEXT_PUBLIC_ADSTERRA_POPUNDER_MIN_PAGEVIEWS",
+        "NEXT_PUBLIC_ADSTERRA_SMARTLINK_URL",
         "NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_SCRIPT_URL"
       ],
       "previewEnvVarNames": [],
       "sources": [
         "/Users/ah/Documents/GitHub/roblox_monetization/site-autopilot/sites/monobombo-calculator/adsterra_cloudflare_env.production.json"
-      ]
+      ],
+      "note": "Cloudflare env patched directly because the shared sync script only read the first Pages-project page."
     }
   ],
   "note": "Report intentionally includes env var names only, not values."
