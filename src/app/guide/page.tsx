@@ -8,11 +8,11 @@ import { Breadcrumbs, PageIntro, SectionHeader } from "@/components/ui/content";
 export const metadata: Metadata = {
   title: `${siteConfig.gameName} Guide`,
   description: `How to play ${siteConfig.gameName}, with role notes for the blindfolded, headphones, and quiet monkey teammates.`,
-  alternates: { canonical: `${siteConfig.domain}/guide` },
+  alternates: { canonical: `${siteConfig.domain}/guide/` },
   openGraph: {
     title: `${siteConfig.gameName} Guide`,
     description: `Role checklist and beginner tips for ${siteConfig.gameName}.`,
-    url: `${siteConfig.domain}/guide`,
+    url: `${siteConfig.domain}/guide/`,
     images: ["/opengraph-image"]
   },
   twitter: {

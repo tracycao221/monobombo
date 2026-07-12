@@ -8,7 +8,7 @@ import { Breadcrumbs, PageIntro, SectionHeader } from "@/components/ui/content";
 export const metadata: Metadata = {
   title: `${siteConfig.gameName} Guides`,
   description: `Beginner, progression, and advanced strategy guides for ${siteConfig.gameName}.`,
-  alternates: { canonical: `${siteConfig.domain}/guide` }
+  alternates: { canonical: `${siteConfig.domain}/guides/` }
 };
 
 export default function GuidesPage() {
