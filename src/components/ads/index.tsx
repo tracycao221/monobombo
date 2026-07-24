@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { trackExperimentEvent } from "@/lib/experiment-telemetry";
 import { runtimeConfig } from "@/lib/runtime-config";
 
@@ -89,6 +90,20 @@ function hasLeaderboardSlot() {
 
 function hasNativeSlot(containerId?: string, scriptUrl?: string) {
   return Boolean(containerId && normalizeScriptUrl(scriptUrl));
+}
+
+export const CLEAN_AD_ROUTES = new Set([
+  "/about",
+  "/contact",
+  "/privacy",
+  "/terms",
+  "/disclosure",
+  "/sources",
+]);
+
+function useCleanAdRoute() {
+  const pathname = usePathname();
+  return CLEAN_AD_ROUTES.has(pathname);
 }
 
 function trackAdEvent(eventName: string, payload: Record<string, unknown>) {
@@ -432,8 +447,21 @@ export function AdsterraToolAd() {
   );
 }
 
+export function AdsterraToolBottom() {
+  if (!hasBannerSlot("300x250")) return null;
+
+  return (
+    <div className="ad-placement ad-placement-tool-bottom">
+      <AdsterraRectangle />
+    </div>
+  );
+}
+
 export function AdsterraPopunderGate() {
+  const cleanRoute = useCleanAdRoute();
+
   useEffect(() => {
+    if (cleanRoute) return;
     if (!runtimeConfig.adsterraEnablePopunder || !runtimeConfig.adsterraPopunderScriptUrl) return;
 
     const pageViewsKey = "roblox-site-adsterra-pageviews";
@@ -457,13 +485,16 @@ export function AdsterraPopunderGate() {
     }, runtimeConfig.adsterraPopunderDelayMs);
 
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [cleanRoute]);
 
   return null;
 }
 
 export function AdsterraSocialBarGate() {
+  const cleanRoute = useCleanAdRoute();
+
   useEffect(() => {
+    if (cleanRoute) return;
     if (!runtimeConfig.adsterraEnableSocialBar || !runtimeConfig.adsterraSocialBarScriptUrl) return;
     if (document.getElementById("adsterra-social-bar")) return;
 
@@ -475,14 +506,15 @@ export function AdsterraSocialBarGate() {
     script.onload = () => trackAdEvent("ad_script_loaded", { ad_slot: "social_bar", ad_format: "social_bar" });
     script.onerror = () => trackAdEvent("ad_script_error", { ad_slot: "social_bar", ad_format: "social_bar" });
     document.body.appendChild(script);
-  }, []);
+  }, [cleanRoute]);
 
   return null;
 }
 
 export function AdsterraStickyRail() {
+  const cleanRoute = useCleanAdRoute();
   const railConfig = bannerConfigs["160x600"];
-  if (!runtimeConfig.adsterraEnableStickyRail || !railConfig.key || !getBannerScriptUrl(railConfig)) {
+  if (cleanRoute || !runtimeConfig.adsterraEnableStickyRail || !railConfig.key || !getBannerScriptUrl(railConfig)) {
     return null;
   }
 

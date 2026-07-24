@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
-import { AdsterraArticleBottom, AdsterraArticleTop } from "@/components/ads";
+import { AdsterraArticleBottom, AdsterraArticleMid, AdsterraArticleTop } from "@/components/ads";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, PageIntro, SectionHeader } from "@/components/ui/content";
 
@@ -56,7 +56,7 @@ export default function GuidePage() {
       <section className="mt-10">
         <SectionHeader
           eyebrow="Role checklist"
-          title="Know what your team needs from you"
+          title="Know what your Monobombo Roblox team needs from you"
           copy="The official Roblox description confirms the sight, hearing, and speech constraints. Exact mode rules will be expanded only after they are verified."
         />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -71,13 +71,15 @@ export default function GuidePage() {
         </div>
       </section>
 
+      <AdsterraArticleMid />
+
       <AdsterraArticleBottom />
       <section className="mt-10 grid gap-4 lg:grid-cols-2">
         <Link href="/codes" className="content-card">
           <span className="mini-label">Codes</span>
           <h2 className="mt-3 text-xl font-bold text-white">Check code status</h2>
           <p className="mt-2 text-sm leading-6 text-white/65">
-            No active official Monobombo codes were verified at launch. Check the codes page before trusting reposted codes.
+            No public Monobombo code was confirmed on Friday, July 24, 2026. Check the codes page before trusting reposted codes.
           </p>
         </Link>
         <Link href="/sources" className="content-card">

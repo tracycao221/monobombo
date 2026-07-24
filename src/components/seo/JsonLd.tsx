@@ -28,7 +28,7 @@ export function WebSiteJsonLd() {
   );
 }
 
-export function FaqJsonLd({ items = faqs.home }: { items?: { q: string; a: string }[] }) {
+export function FaqJsonLd({ items = faqs.home }: { items?: readonly { q: string; a: string }[] }) {
   return (
     <JsonLd
       data={{

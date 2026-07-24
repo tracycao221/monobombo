@@ -61,8 +61,8 @@ export default function HomePage() {
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <SectionHeader
             eyebrow="Freshness center"
-            title={`${siteConfig.gameName} codes and update status`}
-            copy="No active official Monobombo codes were verified at launch, so the homepage sends players to a checked status page instead of repeating unverified code lists."
+            title="Monobombo Roblox codes and update status"
+            copy={`Monobombo Roblox still has no public code confirmed in the ${siteConfig.lastUpdated} freshness check, so the homepage sends players to a checked status page instead of repeating unverified code lists.`}
           />
           <Link className="button-secondary" href="/codes">
             View all codes
@@ -71,9 +71,9 @@ export default function HomePage() {
         {activeCodes.length === 0 ? (
           <article className="content-card mt-6">
             <span className="status-pill">Pending</span>
-            <h3 className="mt-4 text-xl font-bold text-white">No verified active codes yet</h3>
+            <h3 className="mt-4 text-xl font-bold text-white">No public Monobombo codes listed yet</h3>
             <p className="mt-2 text-sm text-white/65">
-              Monobombo is kept separate from Monkey Bomb Tag and other near-name games. Future codes will only be added after a current source check.
+              Monobombo is kept separate from Monkey Bomb Tag and other near-name games. Search results still surface Monkey Bomb Tag code pages, but those belong to a different Roblox game and stay rejected here.
             </p>
           </article>
         ) : (
@@ -97,7 +97,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeader
             eyebrow="Role preview"
-            title={`${siteConfig.gameName} role checklist`}
+            title="Monobombo Roblox role checklist"
             copy="The useful launch guide is about the three monkey communication limits confirmed by the official Roblox description."
           />
           <div className="grid gap-4 md:grid-cols-3">
@@ -119,7 +119,7 @@ export default function HomePage() {
         <SectionHeader
           eyebrow="Core tools"
           title="Player help available at launch"
-          copy="Start with codes status, the role guide, wiki notes, and source checks before trusting reposted information."
+          copy="Start with Monobombo codes status, the role guide, the wiki hub, and source checks before trusting reposted information."
         />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {toolCards.map((tool) => (
@@ -138,7 +138,7 @@ export default function HomePage() {
             <SectionHeader
               eyebrow="Guides"
               title="Pick the next problem to solve"
-              copy="Use these guides when your team needs role clarity, better callouts, or source-backed beginner advice."
+              copy="Use these guides when your team needs role clarity, better callouts, or a cleaner beginner answer for Monobombo Roblox rounds."
             />
             <div className="mt-6 grid gap-3">
               {guideClusters.map((guide) => (
@@ -155,8 +155,8 @@ export default function HomePage() {
           <div>
             <SectionHeader
               eyebrow="Wiki coverage"
-              title="Entity pages for Roblox search demand"
-              copy="Roles, modes, source notes, and update details should be split into wiki sections when research confirms them."
+              title="Monobombo wiki routes for Roblox players"
+              copy="Roles, systems, rewards notes, and update details should be split into wiki sections when public evidence supports them."
             />
             <div className="mt-6 grid gap-3">
               {wikiCards.map((item) => (

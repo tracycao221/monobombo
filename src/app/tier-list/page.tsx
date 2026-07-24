@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig, tierPreview } from "@/data/site";
-import { AdsterraArticleBottom, AdsterraArticleTop } from "@/components/ads";
+import { AdsterraArticleBottom, AdsterraArticleMid, AdsterraArticleTop } from "@/components/ads";
 import { BreadcrumbJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, PageIntro, SectionHeader } from "@/components/ui/content";
 
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.domain}/tier-list` },
   openGraph: {
     title: `${siteConfig.gameName} Role Priority Guide`,
-    description: `${siteConfig.gameName} role notes with source-backed confidence labels.`,
+    description: `${siteConfig.gameName} role notes with checked confidence labels.`,
     url: `${siteConfig.domain}/tier-list`,
     images: ["/opengraph-image"]
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.gameName} Role Priority Guide`,
-    description: `${siteConfig.gameName} role notes with source-backed confidence labels.`,
+    description: `${siteConfig.gameName} role notes with checked confidence labels.`,
     images: ["/opengraph-image"]
   }
 };
@@ -27,20 +27,20 @@ export default function TierListPage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-10">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Role Priority Guide", href: "/tier-list" }]} />
-      <FaqJsonLd items={siteConfig.gameName ? [{ q: "Is there a Monobombo character tier list?", a: "No source-backed character, item, or mode tier list was verified at launch. This page keeps the route focused on confirmed role priorities until real ranking demand appears." }] : []} />
+      <FaqJsonLd items={siteConfig.gameName ? [{ q: "Is there a Monobombo character tier list?", a: "No public character, item, or mode tier list was confirmed on Friday, July 24, 2026. This page keeps the Monobombo tier list focused on checked role ranking confidence until a broader Roblox meta appears." }] : []} />
       <Breadcrumbs items={[{ label: "Role Priority Guide", href: "/tier-list" }]} />
       <PageIntro
         eyebrow="Checked route"
-        title={`${siteConfig.gameName} role priority guide`}
-        description="Monobombo does not have a verified character or item ranking yet. The safe launch version explains the three confirmed team roles and points players to the main guide."
+        title="Monobombo tier list and role ranking"
+        description="Monobombo does not have a public character or item ranking yet. This tier list keeps the Roblox route focused on the three confirmed team roles and clear ranking confidence."
       />
       <AdsterraArticleTop />
 
       <section className="mt-10">
         <SectionHeader
           eyebrow="Confirmed roles"
-          title="Compare the three communication limits"
-          copy="These notes are based on the official Roblox description. Do not treat them as a hidden meta ranking or item list."
+          title="Compare the Monobombo role ranking"
+          copy="These Monobombo tier list notes are based on the official Roblox description. Treat the ranking as communication guidance, not a hidden item meta."
         />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {tierPreview.map((item) => (
@@ -53,6 +53,7 @@ export default function TierListPage() {
           ))}
         </div>
       </section>
+      <AdsterraArticleMid />
       <AdsterraArticleBottom />
 
       <section className="mt-10">

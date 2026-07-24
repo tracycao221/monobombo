@@ -14,10 +14,10 @@ export function Footer() {
             <h3 className="text-sm font-bold text-white">Core pages</h3>
             <div className="mt-3 grid gap-2 text-sm text-white/62">
               <Link href="/codes" className="hover:text-white">Codes</Link>
-              <Link href="/guide" className="hover:text-white">Guide</Link>
-              <Link href="/wiki" className="hover:text-white">Wiki</Link>
-              <Link href="/trello" className="hover:text-white">Trello/Discord</Link>
               <Link href="/guides" className="hover:text-white">Guides</Link>
+              <Link href="/wiki" className="hover:text-white">Wiki</Link>
+              <Link href="/updates" className="hover:text-white">Updates</Link>
+              <Link href="/squad-planner" className="hover:text-white">Squad planner</Link>
             </div>
           </div>
           <div>
@@ -42,6 +42,7 @@ export function Footer() {
               <Link href="/about" className="hover:text-white">About Us</Link>
               <Link href="/sources" className="hover:text-white">Sources</Link>
               <Link href="/trello" className="hover:text-white">Community status</Link>
+              <Link href="/resource-calculator" className="hover:text-white">Resource calculator</Link>
               <Link href="/contact" className="hover:text-white">Contact Us</Link>
               <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white">Terms of Service</Link>

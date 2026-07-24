@@ -50,10 +50,10 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 sm:flex">
           <Link href="/tier-list" className="button-primary button-small">
-            Role Priority
+            Tier List
           </Link>
-          <Link href="/codes" className="button-secondary button-small">
-            Codes
+          <Link href="/squad-planner" className="button-secondary button-small">
+            Squad Planner
           </Link>
         </div>
 
@@ -74,10 +74,10 @@ export function Navbar() {
           <div className="mx-auto grid max-w-7xl gap-3 px-4 py-4">
             <div className="grid grid-cols-2 gap-2">
               <Link href="/tier-list" onClick={() => setMobileOpen(false)} className="button-primary button-small">
-                Role Priority
+                Tier List
               </Link>
-              <Link href="/codes" onClick={() => setMobileOpen(false)} className="button-secondary button-small">
-                Codes
+              <Link href="/squad-planner" onClick={() => setMobileOpen(false)} className="button-secondary button-small">
+                Squad Planner
               </Link>
             </div>
             {siteConfig.navGroups.map((group) => (

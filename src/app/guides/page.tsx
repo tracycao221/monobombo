@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { guideClusters, siteConfig } from "@/data/site";
-import { AdsterraArticleBottom, AdsterraArticleTop } from "@/components/ads";
+import { AdsterraArticleBottom, AdsterraArticleMid, AdsterraArticleTop } from "@/components/ads";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs, PageIntro, SectionHeader } from "@/components/ui/content";
 
@@ -18,8 +18,8 @@ export default function GuidesPage() {
       <Breadcrumbs items={[{ label: "Guides", href: "/guides" }]} />
       <PageIntro
         eyebrow="Guide hub"
-        title={`${siteConfig.gameName} Guides`}
-        description="Use the main Monobombo guide for role notes, bomb-defusal teamwork, and source-backed beginner tips."
+        title="Monobombo guides"
+        description="Use these Monobombo guides for Roblox role notes, bomb-defusal teamwork, and beginner-friendly round planning."
       />
       <AdsterraArticleTop />
 
@@ -27,7 +27,7 @@ export default function GuidesPage() {
         <SectionHeader
           eyebrow="Recommended guides"
           title="Start with the role guide"
-          copy="Monobombo does not have verified advanced mode data yet, so launch guidance focuses on the three role constraints confirmed by the official Roblox description."
+          copy="Monobombo does not have public advanced mode data yet, so the guides hub focuses on the three role constraints confirmed by the official Roblox description."
         />
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {guideClusters.map((guide) => (
@@ -39,6 +39,7 @@ export default function GuidesPage() {
           ))}
         </div>
       </section>
+      <AdsterraArticleMid />
       <AdsterraArticleBottom />
     </main>
   );

@@ -35,7 +35,7 @@ const statusRows = [
     label: "Wiki",
     href: "/wiki",
     status: "Site hub",
-    note: "Use the wiki hub for source-backed entities, mechanics, rewards, and guide links after research confirms them."
+    note: "Use the wiki hub for checked entities, mechanics, rewards, and guide links after public sources confirm them."
   }
 ];
 
@@ -94,8 +94,8 @@ export default function TrelloStatusPage() {
       <section className="mt-10 grid gap-4 md:grid-cols-3">
         <Link href="/codes" className="content-card">
           <span className="mini-label">Freshness</span>
-          <h2 className="mt-3 text-xl font-bold text-white">Codes verification</h2>
-          <p className="mt-2 text-sm leading-6 text-white/65">Check active and expired rewards against official update surfaces before publishing code claims.</p>
+          <h2 className="mt-3 text-xl font-bold text-white">Codes status</h2>
+          <p className="mt-2 text-sm leading-6 text-white/65">Check active and expired rewards against official update surfaces before sharing Monobombo code claims.</p>
         </Link>
         <Link href="/guide" className="content-card">
           <span className="mini-label">Meta</span>

@@ -29,7 +29,7 @@ export type TierPreviewItem = {
   tier: "S" | "A" | "B" | "C";
   role: string;
   reason: string;
-  confidence?: "Source-backed" | "Early signal" | "Needs check";
+  confidence?: "Checked" | "Early signal" | "Needs check";
   bestFor?: string[];
   sourceNote?: string;
   teamNote?: string;

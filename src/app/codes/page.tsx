@@ -32,26 +32,26 @@ export default function CodesPage() {
       <PageIntro
         eyebrow="Freshness-sensitive"
         title={`${siteConfig.gameName} Codes`}
-        description="No active official Monobombo codes were verified during the July 2, 2026 launch check. This page stays live so players can see the checked status without mixing Monobombo with Monkey Bomb Tag or other monkey bomb games."
+        description="No public Monobombo codes were confirmed during the Friday, July 24, 2026 check. This page stays live so players can see the checked status without mixing Monobombo with Monkey Bomb Tag or other monkey bomb games."
       />
       <AdsterraArticleTop />
 
       <section className="mt-10">
         <SectionHeader
           eyebrow="Active list"
-          title="Current verified codes"
+          title="Current code status"
           copy="A code is only added here after an official or trusted current source confirms it for Monobombo."
         />
         {activeCodes.length === 0 ? (
           <article className="content-card mt-6">
             <span className="status-pill">Pending</span>
-            <h2 className="mt-4 text-2xl font-bold text-white">No active Monobombo codes verified yet</h2>
+            <h2 className="mt-4 text-2xl font-bold text-white">No public Monobombo codes listed yet</h2>
             <p className="mt-3 text-white/70">
               We found the official Roblox experience, but did not verify any public Monobombo code
-              list, reward, or redemption UI during the launch check. Monkey Bomb Tag codes are not
+              list, reward, or redemption UI during the Friday, July 24, 2026 check. Monkey Bomb Tag codes are not
               Monobombo codes.
             </p>
-            <p className="mt-2 text-sm text-white/45">Checked: July 2, 2026</p>
+            <p className="mt-2 text-sm text-white/45">Checked: July 24, 2026</p>
           </article>
         ) : (
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -75,7 +75,7 @@ export default function CodesPage() {
           <SectionHeader
             eyebrow="Redeem flow"
             title="How redemption will be checked"
-            copy="No Monobombo redemption panel was verified at launch. These checks are used before any future code is published."
+            copy="No Monobombo redemption panel was verified on Friday, July 24, 2026. These checks are used before any future code is published."
           />
           <ol className="mt-5 grid gap-3 text-white/70">
             <li>1. Open the game from the official Roblox page.</li>
