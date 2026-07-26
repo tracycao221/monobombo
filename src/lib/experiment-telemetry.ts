@@ -1,6 +1,6 @@
 "use client";
 
-export const EXPERIMENT_VERSION = "adsterra-baseline-v1";
+export const EXPERIMENT_VERSION = "adsterra-baseline-v2";
 export const EXPERIMENT_PHASE = "baseline";
 export const BASELINE_ARM = "production_baseline";
 
