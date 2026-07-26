@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { trackExperimentEvent } from "@/lib/experiment-telemetry";
 import { runtimeConfig } from "@/lib/runtime-config";
 
 type BannerSize = "160x300" | "160x600" | "300x250" | "320x50" | "468x60" | "728x90";
@@ -91,11 +92,36 @@ function hasNativeSlot(containerId?: string, scriptUrl?: string) {
 }
 
 function trackAdEvent(eventName: string, payload: Record<string, unknown>) {
-  window.gtag?.("event", eventName, {
+  const eventPayload = {
     event_category: "ads",
     ad_network: "adsterra",
     ...payload
-  });
+  };
+
+  trackExperimentEvent(eventName, eventPayload);
+
+  const standardizedEvent =
+    eventName === "ad_slot_viewed"
+      ? "ad_visible"
+      : eventName === "ad_slot_mounted"
+        ? "experiment_format_triggered"
+        : eventName === "ad_script_loaded"
+          ? "experiment_format_loaded"
+          : eventName === "ad_script_error" || eventName === "ad_empty_after_5s"
+            ? "experiment_format_suppressed"
+            : null;
+
+  if (standardizedEvent) {
+    trackExperimentEvent(standardizedEvent, {
+      ...eventPayload,
+      suppression_reason:
+        eventName === "ad_script_error"
+          ? "script_error"
+          : eventName === "ad_empty_after_5s"
+            ? "empty_after_5s"
+            : undefined
+    });
+  }
 }
 
 function useAdVisibilityTracking(hostRef: React.RefObject<HTMLElement | null>, slotName: string) {

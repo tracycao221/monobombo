@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-07-25T05:02:38Z",
+  "domain": "monobombo.com",
+  "cloudflarePagesProject": "monobombo",
+  "placementHandoffStatus": "needs_manual_mapping",
+  "status": "needs_manual_mapping",
+  "placements": [
+    {
+      "label": "SocialBar_1",
+      "placementType": "Social Bar",
+      "scriptUrl": "https://pl30200566.effectivecpmnetwork.com/7d/b5/44/7db5445a35ae835781713d382e5a464a.js",
+      "key": null,
+      "containerId": null,
+      "mappingStatus": "confirmed",
+      "reason": "Confirmed by the labeled handoff record and the current Cloudflare production runtime value.",
+      "envVarNames": [
+        "NEXT_PUBLIC_ADSTERRA_ENABLE_SOCIAL_BAR",
+        "NEXT_PUBLIC_ADSTERRA_SOCIAL_BAR_SCRIPT_URL"
+      ]
+    }
+  ],
+  "unresolvedPlacements": [
+    {
+      "label": "Popunder_1",
+      "placementType": "Popunder",
+      "mappingStatus": "needs_manual_mapping",
+      "reason": "No independently labeled Popunder GET CODE exists. The current handoff explicitly treats the only one-script placement as Social Bar and keeps Popunder disabled."
+    }
+  ],
+  "rule": "Every one-script placement must have an independently confirmed label and type. Script host or pl-number inference is forbidden.",
+  "cloudflareSyncAllowed": false,
+  "secretPolicy": "Public NEXT_PUBLIC_ADSTERRA runtime values only. Private API keys and Cloudflare tokens are never written here."
+}

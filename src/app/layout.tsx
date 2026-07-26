@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import { AdsterraPopunderGate, AdsterraSmartLink, AdsterraSocialBarGate, AdsterraStickyRail } from "@/components/ads";
+import { ExperimentTelemetry } from "@/components/analytics/ExperimentTelemetry";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { siteConfig } from "@/data/site";
+import { runtimeConfig } from "@/lib/runtime-config";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -60,9 +64,34 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const analyticsId = runtimeConfig.analyticsId;
+  const analyticsIdJson = JSON.stringify(analyticsId);
+
   return (
     <html lang="en">
+      <head>
+        {analyticsId ? (
+          <script
+            id="google-analytics-bootstrap"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+                window.gtag('js', new Date());
+                window.gtag('config', ${analyticsIdJson}, { send_page_view: false });
+                document.documentElement.dataset.gaBootstrap = 'ready';
+              `
+            }}
+          />
+        ) : null}
+      </head>
       <body className={`${inter.variable} font-sans`}>
+        {analyticsId ? (
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`} strategy="afterInteractive" />
+        ) : null}
+        <Suspense fallback={null}>
+          <ExperimentTelemetry measurementId={analyticsId} />
+        </Suspense>
         <AdsterraPopunderGate />
         <AdsterraSocialBarGate />
         <AdsterraSmartLink />
