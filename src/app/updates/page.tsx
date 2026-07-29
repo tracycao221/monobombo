@@ -14,15 +14,15 @@ export const metadata: Metadata = {
 const updateRows = [
   {
     title: "Official Roblox page updated",
-    detail: "The Monobombo Roblox page and games API both showed an updated timestamp on July 22, 2026."
+    detail: "The Roblox source-of-record still resolves to Monobombo on Wednesday, July 29, 2026, the universe lookup still maps place 112531085636442 to universe 10357992717, the public games summary API responded with 3,205 playing and 47,104,395 visits, and the public votes API refreshed to 38,724 upvotes and 1,798 downvotes."
   },
   {
     title: "Codes still pending",
-    detail: "No public Monobombo code, reward string, or redeem panel was confirmed during the Friday, July 24, 2026 check."
+    detail: "No public Monobombo code, reward string, or redeem panel was confirmed during the Wednesday, July 29, 2026 check."
   },
   {
     title: "Community status still pending",
-    detail: "No official Trello, Discord invite, or public wiki source was verified for Monobombo on July 24, 2026."
+    detail: "No official Trello, Discord invite, or public wiki source was verified for Monobombo on July 29, 2026."
   }
 ];
 

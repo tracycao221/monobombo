@@ -8,7 +8,7 @@ export const siteConfig: SiteConfig = {
   description: `${gameConfig.name} wiki with codes status, role guides, Trello and Discord status, official Roblox links, and practical player help.`,
   valueProposition: `Find the official ${gameConfig.name} Roblox link, check whether codes exist, and learn how the three monkey roles work before your team starts defusing bombs.`,
   shortDisclosure: `${gameConfig.name} Wiki is an unofficial fan-made resource. Roblox and the game creators remain the source of record for official support and updates.`,
-  lastUpdated: "2026-07-24",
+  lastUpdated: "2026-07-29",
   freshnessLabel: "official Roblox page checked; codes and community links still pending",
   keywords: [
     `${gameConfig.name}`,
@@ -98,9 +98,9 @@ export const heroActions = [
 
 export const heroMetrics: HeroMetric[] = [
   { label: "Roblox link", value: "Verified", note: "Place 112531085636442" },
-  { label: "Active players", value: "3.3k+", note: "Roblox API check on July 24, 2026" },
-  { label: "Code status", value: "Pending", note: "No public Monobombo code verified on July 24, 2026" },
-  { label: "Vote signal", value: "35.2k", note: "Upvotes from the Roblox votes API" }
+  { label: "Active players", value: "3.2k", note: "Roblox games summary API showed 3,205 playing on July 29, 2026" },
+  { label: "Code status", value: "Pending", note: "No public Monobombo code verified on July 29, 2026" },
+  { label: "Vote signal", value: "38.7k", note: "38,724 upvotes from the Roblox votes API on July 29, 2026" }
 ];
 
 export const activeCodes: GameCode[] = [];
@@ -347,7 +347,7 @@ export const guidePageEntries = {
     faqs: [
       {
         q: "Does Monobombo have a confirmed farming route for rewards?",
-        a: "No public reward route was confirmed on July 24, 2026, so this page treats farming as practice planning instead of an item grind."
+        a: "No public reward route was confirmed on July 29, 2026, so this page treats farming as practice planning instead of an item grind."
       },
       {
         q: "Why does the Monobombo farming guide use a practice target?",

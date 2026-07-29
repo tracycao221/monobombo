@@ -38,7 +38,7 @@ export default function WikiPage() {
           <article className="content-card">
             <span className="mini-label">Current facts</span>
             <h2 className="mt-3 text-2xl font-bold text-white">Current facts</h2>
-            <p className="mt-3 text-sm leading-6 text-white/68">As of Friday, July 24, 2026, Monobombo still has no public code list, no checked Trello board, no checked Discord invite, and no checked public wiki link.</p>
+            <p className="mt-3 text-sm leading-6 text-white/68">As of Wednesday, July 29, 2026, Monobombo still has no public code list, no checked Trello board, no checked Discord invite, and no checked public wiki link.</p>
           </article>
         </div>
       </section>
