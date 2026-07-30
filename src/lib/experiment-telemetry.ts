@@ -26,6 +26,7 @@ export type ExperimentTelemetryFields = {
   experiment_phase: string;
   experiment_version: string;
   fallback_reason: string;
+  site_domain: string;
 };
 
 declare global {
@@ -61,7 +62,8 @@ export function getExperimentTelemetryFields(pathname = window.location.pathname
     assigned_arm: BASELINE_ARM,
     effective_arm: BASELINE_ARM,
     fallback_reason: "none",
-    eligible_session: isEligibleExperimentPage(window.location.hostname, pathname) ? 1 : 0
+    eligible_session: isEligibleExperimentPage(window.location.hostname, pathname) ? 1 : 0,
+    site_domain: normalizeHostname(window.location.hostname)
   } satisfies ExperimentTelemetryFields;
 }
 

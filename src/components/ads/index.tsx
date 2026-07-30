@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { createAdAttempt, startAdRenderDeadline } from "@/lib/ad-attempt";
 import { trackExperimentEvent } from "@/lib/experiment-telemetry";
 import { runtimeConfig } from "@/lib/runtime-config";
 
@@ -122,7 +123,7 @@ function trackAdEvent(eventName: string, payload: Record<string, unknown>) {
         ? "experiment_format_triggered"
         : eventName === "ad_script_loaded"
           ? "experiment_format_loaded"
-          : eventName === "ad_script_error" || eventName === "ad_empty_after_5s"
+          : eventName === "ad_script_error" || eventName === "ad_empty_after_timeout"
             ? "experiment_format_suppressed"
             : null;
 
@@ -132,11 +133,30 @@ function trackAdEvent(eventName: string, payload: Record<string, unknown>) {
       suppression_reason:
         eventName === "ad_script_error"
           ? "script_error"
-          : eventName === "ad_empty_after_5s"
-            ? "empty_after_5s"
+          : eventName === "ad_empty_after_timeout"
+            ? "empty_after_timeout"
             : undefined
     });
   }
+}
+
+function hasRenderedAdCreative(host: HTMLElement) {
+  if (host.querySelector("iframe, ins, a[href], img[src], object, embed")) return true;
+
+  return Array.from(host.children).some((element) => {
+    if (element.tagName === "SCRIPT" || element.tagName === "STYLE") return false;
+    return element.childElementCount > 0 || Boolean(element.textContent?.trim());
+  });
+}
+
+function observeAdCreative(host: HTMLElement, onCreative: () => void) {
+  if (typeof MutationObserver === "undefined") return () => undefined;
+
+  const observer = new MutationObserver(() => {
+    if (hasRenderedAdCreative(host)) onCreative();
+  });
+  observer.observe(host, { attributes: true, childList: true, subtree: true });
+  return () => observer.disconnect();
 }
 
 function useAdVisibilityTracking(hostRef: React.RefObject<HTMLElement | null>, slotName: string) {
@@ -200,7 +220,8 @@ function AdsterraBannerUnit({
     if (!host || !scriptUrl || !config.key) return;
 
     let cancelled = false;
-    let emptyCheck: number | undefined;
+    let cancelDeadline: () => void = () => undefined;
+    let stopWatching: () => void = () => undefined;
 
     const queue = window.__adsterraBannerQueue || Promise.resolve();
     window.__adsterraBannerQueue = queue.then(
@@ -211,7 +232,19 @@ function AdsterraBannerUnit({
             return;
           }
 
-          trackAdEvent("ad_slot_mounted", { ad_slot: resolvedSlotName, ad_format: size });
+          const attempt = createAdAttempt(
+            { format: size, slotId: resolvedSlotName },
+            trackAdEvent
+          );
+          const finishAttempt = (
+            outcome: "creative_rendered" | "empty_after_timeout" | "script_error"
+          ) => {
+            if (!attempt.finish(outcome)) return;
+            cancelDeadline();
+            stopWatching();
+          };
+
+          attempt.mounted();
           host.replaceChildren();
           window.atOptions = {
             key: config.key,
@@ -221,33 +254,43 @@ function AdsterraBannerUnit({
             params: {}
           };
 
+          const deadline = startAdRenderDeadline({
+            hasCreative: () => hasRenderedAdCreative(host),
+            onCreative: () => finishAttempt("creative_rendered"),
+            onEmpty: () => finishAttempt("empty_after_timeout")
+          });
+          cancelDeadline = deadline.cancel;
+          stopWatching = observeAdCreative(host, deadline.markCreative);
+
           const script = document.createElement("script");
           script.type = "text/javascript";
           script.src = scriptUrl;
           script.async = false;
           script.onload = () => {
-            trackAdEvent("ad_script_loaded", { ad_slot: resolvedSlotName, ad_format: size });
+            if (cancelled) {
+              resolve();
+              return;
+            }
+            attempt.scriptLoaded();
+            if (hasRenderedAdCreative(host)) deadline.markCreative();
             resolve();
           };
           script.onerror = () => {
-            trackAdEvent("ad_script_error", { ad_slot: resolvedSlotName, ad_format: size });
+            if (cancelled) {
+              resolve();
+              return;
+            }
+            finishAttempt("script_error");
             resolve();
           };
           host.appendChild(script);
-
-          emptyCheck = window.setTimeout(() => {
-            const rendered = Boolean(host.querySelector("iframe, ins, a, img"));
-            trackAdEvent(rendered ? "ad_creative_rendered" : "ad_empty_after_5s", {
-              ad_slot: resolvedSlotName,
-              ad_format: size
-            });
-          }, 5000);
         })
     );
 
     return () => {
       cancelled = true;
-      if (emptyCheck) window.clearTimeout(emptyCheck);
+      cancelDeadline();
+      stopWatching();
       host.replaceChildren();
     };
   }, [config.height, config.key, config.width, resolvedSlotName, scriptUrl, size]);
@@ -315,31 +358,55 @@ function AdsterraNativeUnit({
     const host = hostRef.current;
     if (!host || !cleanContainerId || !normalizedScriptUrl) return;
 
-    trackAdEvent("ad_slot_mounted", { ad_slot: slotName, ad_format: "native" });
+    let cancelled = false;
+    const attempt = createAdAttempt(
+      { format: "native", slotId: slotName },
+      trackAdEvent
+    );
+    let stopWatching: () => void = () => undefined;
+    let cancelDeadline: () => void = () => undefined;
+    const finishAttempt = (
+      outcome: "creative_rendered" | "empty_after_timeout" | "script_error"
+    ) => {
+      if (!attempt.finish(outcome)) return;
+      cancelDeadline();
+      stopWatching();
+    };
+
+    attempt.mounted();
     host.replaceChildren();
 
     const container = document.createElement("div");
     container.id = cleanContainerId;
     host.appendChild(container);
 
+    const deadline = startAdRenderDeadline({
+      hasCreative: () => hasRenderedAdCreative(host),
+      onCreative: () => finishAttempt("creative_rendered"),
+      onEmpty: () => finishAttempt("empty_after_timeout")
+    });
+    cancelDeadline = deadline.cancel;
+    stopWatching = observeAdCreative(host, deadline.markCreative);
+
     const script = document.createElement("script");
     script.async = true;
     script.dataset.cfasync = "false";
     script.src = normalizedScriptUrl;
-    script.onload = () => trackAdEvent("ad_script_loaded", { ad_slot: slotName, ad_format: "native" });
-    script.onerror = () => trackAdEvent("ad_script_error", { ad_slot: slotName, ad_format: "native" });
+    script.onload = () => {
+      if (cancelled) return;
+      attempt.scriptLoaded();
+      if (hasRenderedAdCreative(host)) deadline.markCreative();
+    };
+    script.onerror = () => {
+      if (cancelled) return;
+      finishAttempt("script_error");
+    };
     host.appendChild(script);
 
-    const emptyCheck = window.setTimeout(() => {
-      const rendered = Boolean(container.querySelector("iframe, ins, a, img"));
-      trackAdEvent(rendered ? "ad_creative_rendered" : "ad_empty_after_5s", {
-        ad_slot: slotName,
-        ad_format: "native"
-      });
-    }, 5000);
-
     return () => {
-      window.clearTimeout(emptyCheck);
+      cancelled = true;
+      cancelDeadline();
+      stopWatching();
       host.replaceChildren();
     };
   }, [cleanContainerId, normalizedScriptUrl, slotName]);
