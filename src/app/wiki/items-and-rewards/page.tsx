@@ -27,7 +27,7 @@ export default function WikiItemsRewardsPage() {
         <article className="content-card">
           <span className="mini-label">Code status</span>
           <h2 className="mt-3 text-2xl font-bold text-white">Code and rewards status</h2>
-          <p className="mt-3 text-sm leading-6 text-white/68">No public Monobombo code or reward text was confirmed on Thursday, July 30, 2026, so this page treats code claims as pending until a checked source appears.</p>
+          <p className="mt-3 text-sm leading-6 text-white/68">No public Monobombo code or reward text was confirmed on Friday, August 7, 2026, so this page treats code claims as pending until a checked source appears.</p>
         </article>
         <article className="content-card">
           <span className="mini-label">Items watch</span>

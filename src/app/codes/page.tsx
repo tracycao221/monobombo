@@ -32,7 +32,7 @@ export default function CodesPage() {
       <PageIntro
         eyebrow="Freshness-sensitive"
         title={`${siteConfig.gameName} Codes`}
-        description="No public Monobombo codes were confirmed during the Thursday, July 30, 2026 check. This page stays live so players can see the checked status without mixing Monobombo with Monkey Bomb Tag or other monkey bomb games."
+        description="No public Monobombo codes were confirmed during the Friday, August 7, 2026 check. This page stays live so players can see the checked status without mixing Monobombo with Monkey Bomb Tag or other monkey bomb games."
       />
       <AdsterraArticleTop />
 
@@ -48,10 +48,10 @@ export default function CodesPage() {
             <h2 className="mt-4 text-2xl font-bold text-white">No public Monobombo codes listed yet</h2>
             <p className="mt-3 text-white/70">
               We found the official Roblox experience, but did not verify any public Monobombo code
-              list, reward, or redemption UI during the Thursday, July 30, 2026 check. Monkey Bomb Tag codes are not
+              list, reward, or redemption UI during the Friday, August 7, 2026 check. Monkey Bomb Tag codes are not
               Monobombo codes.
             </p>
-            <p className="mt-2 text-sm text-white/45">Checked: July 30, 2026</p>
+            <p className="mt-2 text-sm text-white/45">Checked: August 7, 2026</p>
           </article>
         ) : (
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -75,7 +75,7 @@ export default function CodesPage() {
           <SectionHeader
             eyebrow="Redeem flow"
             title="How redemption will be checked"
-            copy="No Monobombo redemption panel was verified on Thursday, July 30, 2026. These checks are used before any future code is published."
+            copy="No Monobombo redemption panel was verified on Friday, August 7, 2026. These checks are used before any future code is published."
           />
           <ol className="mt-5 grid gap-3 text-white/70">
             <li>1. Open the game from the official Roblox page.</li>

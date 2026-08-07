@@ -79,7 +79,7 @@ export default function GuidePage() {
           <span className="mini-label">Codes</span>
           <h2 className="mt-3 text-xl font-bold text-white">Check code status</h2>
           <p className="mt-2 text-sm leading-6 text-white/65">
-            No public Monobombo code was confirmed on Thursday, July 30, 2026. Check the codes page before trusting reposted codes.
+            No public Monobombo code was confirmed on Friday, August 7, 2026. Check the codes page before trusting reposted codes.
           </p>
         </Link>
         <Link href="/sources" className="content-card">

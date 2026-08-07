@@ -8,8 +8,8 @@ export const siteConfig: SiteConfig = {
   description: `${gameConfig.name} wiki with codes status, role guides, Trello and Discord status, official Roblox links, and practical player help.`,
   valueProposition: `Find the official ${gameConfig.name} Roblox link, check whether codes exist, and learn how the three monkey roles work before your team starts defusing bombs.`,
   shortDisclosure: `${gameConfig.name} Wiki is an unofficial fan-made resource. Roblox and the game creators remain the source of record for official support and updates.`,
-  lastUpdated: "2026-08-06",
-  freshnessLabel: "official Roblox page and votes checked; codes and community links still pending",
+  lastUpdated: "2026-08-07",
+  freshnessLabel: "official Roblox page, games summary, and votes checked; codes and community links still pending",
   keywords: [
     `${gameConfig.name}`,
     `${gameConfig.name} codes`,
@@ -98,9 +98,9 @@ export const heroActions = [
 
 export const heroMetrics: HeroMetric[] = [
   { label: "Roblox link", value: "Verified", note: "Place 112531085636442" },
-  { label: "Stats snapshot", value: "2.5k live", note: "2,547 playing, 48,692,877 visits, and 131,250 favorites from Roblox on July 30, 2026" },
-  { label: "Code status", value: "Pending", note: "No public Monobombo code verified on August 6, 2026" },
-  { label: "Vote signal", value: "44.3k", note: "44,337 upvotes from the Roblox votes API on August 6, 2026" }
+  { label: "Stats snapshot", value: "1.5k live", note: "1,538 playing, 54,301,819 visits, and 142,649 favorites from Roblox on Friday, August 7, 2026" },
+  { label: "Code status", value: "Pending", note: "No public Monobombo code verified on Friday, August 7, 2026" },
+  { label: "Vote signal", value: "44.6k", note: "44,563 upvotes from the Roblox votes API on Friday, August 7, 2026" }
 ];
 
 export const activeCodes: GameCode[] = [];
@@ -347,7 +347,7 @@ export const guidePageEntries = {
     faqs: [
       {
         q: "Does Monobombo have a confirmed farming route for rewards?",
-        a: "No public reward route was confirmed on July 30, 2026, so this page treats farming as practice planning instead of an item grind."
+        a: "No public reward route was confirmed on Friday, August 7, 2026, so this page treats farming as practice planning instead of an item grind."
       },
       {
         q: "Why does the Monobombo farming guide use a practice target?",

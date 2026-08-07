@@ -27,7 +27,7 @@ export default function TierListPage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-10">
       <BreadcrumbJsonLd items={[{ name: "Home", href: "/" }, { name: "Role Priority Guide", href: "/tier-list" }]} />
-      <FaqJsonLd items={siteConfig.gameName ? [{ q: "Is there a Monobombo character tier list?", a: "No public character, item, or mode tier list was confirmed on Thursday, July 30, 2026. This page keeps the Monobombo tier list focused on checked role ranking confidence until a broader Roblox meta appears." }] : []} />
+      <FaqJsonLd items={siteConfig.gameName ? [{ q: "Is there a Monobombo character tier list?", a: "No public character, item, or mode tier list was confirmed on Friday, August 7, 2026. This page keeps the Monobombo tier list focused on checked role ranking confidence until a broader Roblox meta appears." }] : []} />
       <Breadcrumbs items={[{ label: "Role Priority Guide", href: "/tier-list" }]} />
       <PageIntro
         eyebrow="Checked route"
