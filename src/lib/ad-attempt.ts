@@ -20,6 +20,7 @@ type RenderDeadlineOptions = {
   hasCreative: () => boolean;
   initialDelayMs?: number;
   onCreative: () => void;
+  onInitialEmpty?: () => void;
   onEmpty: () => void;
   setTimer?: (callback: () => void, delayMs: number) => TimerHandle;
   clearTimer?: (handle: TimerHandle) => void;
@@ -93,6 +94,7 @@ export function startAdRenderDeadline({
   hasCreative,
   initialDelayMs = AD_RENDER_INITIAL_CHECK_MS,
   onCreative,
+  onInitialEmpty,
   onEmpty,
   setTimer = setTimeout
 }: RenderDeadlineOptions) {
@@ -112,6 +114,7 @@ export function startAdRenderDeadline({
       return;
     }
 
+    onInitialEmpty?.();
     graceTimer = setTimer(() => {
       finish(hasCreative() ? onCreative : onEmpty);
     }, graceMs);

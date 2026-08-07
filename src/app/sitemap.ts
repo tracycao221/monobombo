@@ -25,6 +25,11 @@ const routes: Array<{
   { path: "/squad-planner", changeFrequency: "weekly", priority: 0.72 },
   { path: "/resource-calculator", changeFrequency: "weekly", priority: 0.72 },
   { path: "/sources", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.3 },
+  { path: "/contact", changeFrequency: "monthly", priority: 0.3 },
+  { path: "/privacy", changeFrequency: "monthly", priority: 0.2 },
+  { path: "/terms", changeFrequency: "monthly", priority: 0.2 },
+  { path: "/disclosure", changeFrequency: "monthly", priority: 0.2 },
 ];
 
 function canonicalUrl(path: string) {

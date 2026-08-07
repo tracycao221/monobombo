@@ -257,6 +257,10 @@ function AdsterraBannerUnit({
           const deadline = startAdRenderDeadline({
             hasCreative: () => hasRenderedAdCreative(host),
             onCreative: () => finishAttempt("creative_rendered"),
+            onInitialEmpty: () => trackAdEvent("ad_empty_after_5s", {
+              ad_slot: resolvedSlotName,
+              initial_check_ms: 5000
+            }),
             onEmpty: () => finishAttempt("empty_after_timeout")
           });
           cancelDeadline = deadline.cancel;
@@ -383,6 +387,10 @@ function AdsterraNativeUnit({
     const deadline = startAdRenderDeadline({
       hasCreative: () => hasRenderedAdCreative(host),
       onCreative: () => finishAttempt("creative_rendered"),
+      onInitialEmpty: () => trackAdEvent("ad_empty_after_5s", {
+        ad_slot: slotName,
+        initial_check_ms: 5000
+      }),
       onEmpty: () => finishAttempt("empty_after_timeout")
     });
     cancelDeadline = deadline.cancel;
