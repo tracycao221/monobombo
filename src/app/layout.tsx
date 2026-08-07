@@ -70,6 +70,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
+        <script
+          async
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8422008024471928"
+        />
         {analyticsId ? (
           <script
             id="google-analytics-bootstrap"

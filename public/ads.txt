@@ -1,2 +1,1 @@
-# Add publisher-authorized seller lines before monetization.
-# Keep this file present from bootstrap so deployment checks and ad onboarding have a stable path.
+google.com, pub-8422008024471928, DIRECT, f08c47fec0942fa0

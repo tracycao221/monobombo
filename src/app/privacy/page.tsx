@@ -42,9 +42,20 @@ export default function PrivacyPage() {
         <article className="content-card">
           <h2 className="text-xl font-bold text-white">Advertising and third-party cookies</h2>
           <p className="mt-2 leading-7 text-white/68">
-            Advertising partners, including Adsterra when enabled, may use third-party cookies, scripts,
-            pixels, smart links, or similar technology to deliver ads, measure ad performance, limit repeat
-            impressions, detect invalid traffic, and personalize ads where allowed by law.
+            Advertising partners, including Google AdSense and Adsterra when enabled, may use cookies,
+            web beacons, IP addresses, device or browser information, scripts, pixels, smart links, or
+            similar technology to deliver and measure ads, limit repeat impressions, detect invalid traffic,
+            and personalize ads where allowed by law. Google explains how it uses information from sites
+            and apps that use its services in its{" "}
+            <a
+              className="text-[var(--accent)] hover:underline"
+              href="https://policies.google.com/technologies/partner-sites"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              partner-sites policy
+            </a>
+            .
           </p>
         </article>
 
@@ -52,8 +63,17 @@ export default function PrivacyPage() {
           <h2 className="text-xl font-bold text-white">Your controls</h2>
           <p className="mt-2 leading-7 text-white/68">
             You can block or delete cookies in your browser, use browser privacy settings, opt out through
-            available advertising industry tools, or use Google Analytics opt-out controls where supported.
-            Some site or ad features may work differently after cookies are limited.
+            available advertising industry tools, manage personalized Google advertising through{" "}
+            <a
+              className="text-[var(--accent)] hover:underline"
+              href="https://adssettings.google.com/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Google&apos;s ad settings
+            </a>
+            , or use Google Analytics opt-out controls where supported. Some site or ad features may work
+            differently after cookies are limited.
           </p>
         </article>
 
